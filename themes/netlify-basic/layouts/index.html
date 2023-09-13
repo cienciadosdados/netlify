@@ -1,89 +1,57 @@
 {{ define "main" }}
-<svg id="background" width='1728' height='1235' viewBox="0 0 1728 1235" fill='none' xmlns='http://www.w3.org/2000/svg'><g opacity='0.75' filter='url(#filter0_f_39_143)'><circle cy='1000' r='264' fill='url(#paint0_linear_39_143)'/></g><g opacity='0.65' filter='url(#filter1_f_39_143)'><circle cx='1720' cy='264' r='379' fill='url(#paint1_linear_39_143)'/></g><defs><filter id='filter0_f_39_143' x='-485' y='515' width='970' height='970' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feFlood flood-opacity='0' result='BackgroundImageFix'/><feBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/><feGaussianBlur stdDeviation='110.5' result='effect1_foregroundBlur_39_143'/></filter><filter id='filter1_f_39_143' x='1120' y='-336' width='1200' height='1200' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feFlood flood-opacity='0' result='BackgroundImageFix'/><feBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/><feGaussianBlur stdDeviation='110.5' result='effect1_foregroundBlur_39_143'/></filter><linearGradient id='paint0_linear_39_143' x1='196.5' y1='902' x2='-2.55853e-05' y2='1264' gradientUnits='userSpaceOnUse'><stop stop-color="var(--bttm-left-blur-1)"/><stop offset='1' stop-color="var(--bttm-left-blur-2)"/></linearGradient><linearGradient id='paint1_linear_39_143' x1='1720' y1='-115' x2='1720' y2='643' gradientUnits='userSpaceOnUse'><stop stop-color="var(--top-right-blur-1)"/><stop offset='1' stop-color="var(--top-right-blur-2)" /></linearGradient></defs></svg>     
-<div id="content">
-  <div class="header">
-    <h1>Quickstart Template</h1>
-
-    <div class="logo">
-      <img src="https://user-images.githubusercontent.com/43764894/223559747-e9d7f19d-91bf-46a9-a0cb-8d6a40d3cfa3.png" alt="netlify + hugo banner" role="presentation">
-    </div>
-    <h2>
-      This is a bare-bones Hugo project that has everything you need to quickly deploy it to Netlify
-    </h2>
-    <div class="bttns">
-      <a href="https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/hugo-quickstart" class="bttn primary">Deploy to Netlify</a>
-      <a href="https://github.com/netlify-templates/hugo-quickstart" class="bttn secondary">View Repo</a>
-    </div>
-  </div>
-  <div class="resource-list">
-    <ul>
-      <li>
-        <a href="https://ntl.fyi/3xXydGk">Netlify Blog: Hugo posts</a>
-      </li>
-      <li>
-        <a href="https://ntl.fyi/3P9w1mr">Hugo on Netlify Docs</a>
-      </li>
-      <li>
-        <a href="https://gohugo.io/documentation/">Hugo Docs</a>
-      </li>
-    </ul>
-  </div>
-</div>
+<!-- Seu conteúdo HTML existente -->
 
 <!-- Coloque o chat bot no canto direito inferior usando CSS -->
-<div id="chatbot-container">
-  <iframe
-    id="chatbot-frame"
-    src="https://www.chatbase.co/chatbot-iframe/mfKfZZ1YAiTjrLlNrS3fP"
-    frameborder="0"
+<iframe
+  id="chatbot-frame"
+  src="https://www.chatbase.co/chatbot-iframe/mfKfZZ1YAiTjrLlNrS3fP"
+  frameborder="0"
   ></iframe>
 
-  <!-- Botão de fechar -->
-  <button id="close-chatbot-button">X</button>
-</div>
+<!-- Botão de fechar visível -->
+<button id="close-chatbot-button" onclick="closeChatBot()">X</button>
 
 <style>
   /* CSS para posicionar o chat bot no canto direito inferior */
-  #chatbot-container {
+  #chatbot-frame {
     position: fixed;
     bottom: 10px;
     right: 10px;
     width: 300px; /* Largura desejada para o chat bot */
     height: 400px; /* Altura desejada para o chat bot */
-    z-index: 9999; /* Certifique-se de que o chat bot apareça acima de outros elementos */
-  }
-
-  #chatbot-frame {
-    width: 100%;
-    height: 100%;
     border: none;
     background-color: white;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 9999; /* Certifique-se de que o chat bot apareça acima de outros elementos */
   }
 
   /* CSS para posicionar o botão de fechar */
   #close-chatbot-button {
-    position: absolute;
-    top: -20px;
-    right: -20px;
+    position: fixed;
+    bottom: 10px;
+    right: 320px; /* Ajuste a posição conforme necessário */
     width: 40px;
     height: 40px;
-    background-color: red;
-    color: white;
+    background-color: red; /* Cor do botão de fechar */
+    color: white; /* Cor do texto do botão de fechar */
     border: none;
     border-radius: 50%;
+    font-size: 20px;
+    text-align: center;
+    line-height: 40px;
     cursor: pointer;
+    z-index: 10000; /* Certifique-se de que o botão de fechar apareça acima do chat bot */
   }
 </style>
 
 <script>
   // JavaScript para fechar o chat bot quando o botão for clicado
-  const closeChatBotButton = document.getElementById('close-chatbot-button');
-  const chatBotContainer = document.getElementById('chatbot-container');
+  function closeChatBot() {
+    var chatBotFrame = document.getElementById('chatbot-frame');
+    var closeChatBotButton = document.getElementById('close-chatbot-button');
 
-  closeChatBotButton.addEventListener('click', () => {
-    chatBotContainer.style.display = 'none';
-  });
+    chatBotFrame.style.display = 'none';
+    closeChatBotButton.style.display = 'none';
+  }
 </script>
-</div>
 {{ end }}
