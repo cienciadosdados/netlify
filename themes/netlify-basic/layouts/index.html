@@ -19,7 +19,7 @@
     <ul>
       <li>
         <a href="https://ntl.fyi/3xXydGk">Netlify Blog: Hugo posts</a>
-        </li>
+      </li>
       <li>
         <a href="https://ntl.fyi/3P9w1mr">Hugo on Netlify Docs</a>
       </li>
@@ -35,10 +35,10 @@
   id="chatbot-frame"
   src="https://www.chatbase.co/chatbot-iframe/mfKfZZ1YAiTjrLlNrS3fP"
   frameborder="0"
-  ></iframe>
+></iframe>
 
-<!-- Adicione um botão "X" para fechar o chat bot -->
-<button id="close-chatbot">X</button>
+<!-- Botão de fechar -->
+<button id="close-chatbot-button">Fechar Chat</button>
 
 <style>
   /* CSS para posicionar o chat bot no canto direito inferior */
@@ -46,25 +46,37 @@
     position: fixed;
     bottom: 10px;
     right: 10px;
-    width: 300px; /* Defina a largura desejada para o chat bot */
-    height: 400px; /* Defina a altura desejada para o chat bot */
+    width: 300px; /* Largura desejada para o chat bot */
+    height: 400px; /* Altura desejada para o chat bot */
     border: none;
     background-color: white;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     z-index: 9999; /* Certifique-se de que o chat bot apareça acima de outros elementos */
   }
-  
+
   /* CSS para posicionar o botão de fechar */
-  #close-chatbot {
+  #close-chatbot-button {
     position: fixed;
-    bottom: 10px;
-    right: 320px; /* Ajuste a posição conforme necessário */
-    background-color: red; /* Cor do botão de fechar */
-    color: white; /* Cor do texto do botão de fechar */
-    border: none;
+    bottom: 20px;
+    right: 20px;
     padding: 5px 10px;
+    background-color: red;
+    color: white;
+    border: none;
     cursor: pointer;
+    z-index: 10000; /* Certifique-se de que o botão de fechar apareça acima do chat bot */
   }
 </style>
+
+<script>
+  // JavaScript para fechar o chat bot quando o botão for clicado
+  const closeChatBotButton = document.getElementById('close-chatbot-button');
+  const chatBotFrame = document.getElementById('chatbot-frame');
+
+  closeChatBotButton.addEventListener('click', () => {
+    chatBotFrame.style.display = 'none';
+    closeChatBotButton.style.display = 'none';
+  });
+</script>
 </div>
 {{ end }}
